@@ -145,9 +145,3 @@ class LinkedList:
         self.print()
 
 
-if __name__ == '__main__':
-    linkedList = LinkedList()
-    for i in range(1, 5):
-        linkedList.insert_end(i)
-    linkedList.delete_last()
-    linkedList.print()

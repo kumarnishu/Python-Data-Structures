@@ -1,16 +1,12 @@
-# Node class
+import math
 class Node:
-    # Function to initialize the node object
     def __init__(self, data):
-        self.data = data  # Assign data
-        self.next = None  # Initialize next as null
+        self.data = data 
+        self.next = None 
 
-
-# Linked List class
 class LinkedList:
-    # Function to initialize the Linked List object
     def __init__(self):
-        self.head = None  # assign null to head node
+        self.head = None  
 
     # function to insert node at front
     def insert_beginning(self, data):
@@ -18,7 +14,7 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
-    # function to insert node after a given node
+    # function to insert node after a given node value
     def insert_after(self, prev_item, data):
         temp = self.head
         while temp:
@@ -34,12 +30,9 @@ class LinkedList:
     # function to insert node at last
     def insert_end(self, data):
         new_node = Node(data)
-
-        # if linkedList is empty then new node is head
         if self.head is None:
             self.head = new_node
             return
-        # else traverse to the last node
         last_node = self.head
         while last_node.next:
             last_node = last_node.next
@@ -49,7 +42,7 @@ class LinkedList:
     def print(self):
         temp = self.head
         while temp:
-            print("->", temp.data)
+            print(temp.data,end="-->")
             temp = temp.next
 
     # count the length of linkedList
@@ -67,7 +60,7 @@ class LinkedList:
             return True
         return False
 
-    # function to print pos of item
+    # function to print nth position of item
     def find_pos(self, item):
         temp = self.head
         count = 0
@@ -75,7 +68,7 @@ class LinkedList:
             count += 1
             if temp.data == item:
                 print(f"{item}  found at {count} position in the linkedList")
-                return
+                return count
             temp = temp.next
         print(f"{item}  not found  in the linkedList !UnderFlow")
 
@@ -87,7 +80,7 @@ class LinkedList:
             counter += 1
             if counter == pos:
                 print(f"at {pos} position  {temp.data} found in the linkedList")
-                return
+                return temp.data
             temp = temp.next
         print(f"{pos} position not a valid position !Underflow")
 
@@ -105,9 +98,9 @@ class LinkedList:
             prev_node = temp
             temp = temp.next
             if temp.data == item:
-                break
-        prev_node.next = temp.next
-        del temp
+                prev_node.next = temp.next
+                del temp
+                return
 
     # function to delete from end
     def delete_last(self):
@@ -119,20 +112,7 @@ class LinkedList:
         prev_node.next = temp.next
         del temp
 
-    # function to search an element Recursive method
-    counter = 0
-
-    def search(self, head, item):
-        if head is None:
-            print("item not exists !overflow")
-            return True
-        if head.data == item:
-            print(f"{item} found")
-        else:
-            self.search(head.next, item)
-        print("item not found in the linkedList")
-
-    # reverse a linked linkedList
+    #function to reverse a linkedList
     def reverse(self):
         current_node = self.head
         prev_node = None
@@ -142,6 +122,5 @@ class LinkedList:
             prev_node = current_node
             current_node = next_node
         self.head = prev_node
-        self.print()
 
 

@@ -2,3 +2,4 @@ venv
  .idea
 projects
 .env
+__pycache__
